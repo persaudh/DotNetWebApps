@@ -1,0 +1,12 @@
+﻿@page "{articalId:int}"
+@model RazorPortfolio.Pages.ArticalModel
+@{
+}
+
+<h1>@Model.Title</h1>
+
+@RouteData.Values["articalId"]
+
+<p>@Model.Text</p>
+
+<a href="../News">&larr; Read other news</a>

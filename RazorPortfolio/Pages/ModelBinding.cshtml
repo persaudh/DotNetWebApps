@@ -1,0 +1,20 @@
+﻿@page
+@model RazorPortfolio.Pages.ModelBindingModel
+@{
+}
+
+<div class="text-center">
+    <form method="post">
+        <div style="display: flex; justify-content: center">
+            <div style="display: grid; grid-gap: 5px; width: 300px">
+                <input type="text" name="username" placeholder="username" />
+                <input type="password" name="password" placeholder="password" />
+                <button type="submit" class="btn btn-primary" style="width: 80px; margin-top:5px">Sign In</button>
+            </div>
+        </div>
+    </form>
+    @if (Model.UserName != null)
+    {
+        <p>Logged in as user: @Model.UserName</p>
+    }
+</div>

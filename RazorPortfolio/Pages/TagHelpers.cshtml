@@ -1,0 +1,30 @@
+﻿@page
+@model RazorPortfolio.Pages.TagHelpersModel
+@{
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<div class="text-center">
+    <form method="post">
+        <div style="display: flex; justify-content: center">
+            <div style="display: grid; grid-gap: 5px; width: 300px">
+                <input asp-for="Employee.Name" placeholder="@nameof(Employee.Name)" class="form-control"/>
+                <span asp-validation-for="Employee.Name" class="text-danger"></span>
+                <input asp-for="Employee.Email" placeholder="@nameof(Employee.Email)" class="form-control" />
+                <span asp-validation-for="Employee.Email" class="text-danger"></span>
+                <input asp-for="Employee.Password" placeholder="@nameof(Employee.Password)" class="form-control" />
+                <span asp-validation-for="Employee.Password" class="text-danger"></span>
+                <input asp-for="Employee.DateOfBirth" placeholder="@nameof(Employee.DateOfBirth)" class="form-control" />
+                <span asp-validation-for="Employee.DateOfBirth" class="text-danger"></span>
+                <div>
+                    <input asp-for="Employee.Newsletter" class="form-check-input" />
+                    <label asp-for="Employee.Newsletter" class="form-check-label" ></label>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 80px; margin-top:5px">Sign In</button>
+            </div>
+        </div>
+    </form>
+</div>

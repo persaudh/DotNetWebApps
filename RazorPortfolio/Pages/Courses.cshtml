@@ -1,0 +1,20 @@
+﻿@page
+@model RazorPortfolio.Pages.CoursesModel
+@{
+}
+<div>
+    <h1>Courses</h1>
+    <p>Here are some of the courses I have to completed:</p>
+    <ul>
+        @foreach (var course in Model.Courses)
+        {
+            <li>
+                <b><u>@course.Name</u></b>
+                <ul>
+                    <li>@course.Duration</li>
+                    <li><a class="link-info" href="@course.URL" target="_blank">@course.Name</a></li>
+                </ul>
+            </li>
+        }
+    </ul>
+</div>
