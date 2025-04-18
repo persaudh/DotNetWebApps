@@ -1,0 +1,144 @@
+﻿@page
+@model MovieDirectory.Pages.OverviewModel
+@{
+}
+
+@{
+    ViewData["Title"] = "Overview";
+}
+<div>
+    <button class="btn btn-primary" id="showFormBtn">Add Movie</button>
+
+    <div id="movieForm" style="display:none; margin:20px">
+        <form method="post" asp-page-handler="AddMovie">
+            <div class="form-group">
+                <label asp-for="NewMovie.Title"></label>
+                <input asp-for=" NewMovie.Title" class="form-control" />
+                <span asp-validation-for="NewMovie.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewMovie.Genres"></label>
+                <label>
+                    <input type="checkbox" name="NewMovie.Genres" value="Action"
+                    @(Model.NewMovie?.Genres?.Contains("Action") == true ? "checked" : "") /> Action
+                </label>
+                <label>
+                    <input type="checkbox" name="NewMovie.Genres" value="Comedy"
+                    @(Model.NewMovie?.Genres?.Contains("Comedy") == true ? "checked" : "") /> Comedy
+                </label>
+                <label>
+                    <input type="checkbox" name="NewMovie.Genres" value="Drama"
+                    @(Model.NewMovie?.Genres?.Contains("Drama") == true ? "checked" : "") /> Drama
+                </label>
+                <label>
+                    <input type="checkbox" name="NewMovie.Genres" value="Horror"
+                    @(Model.NewMovie?.Genres?.Contains("Horror") == true ? "checked" : "") /> Horror
+                </label>
+                <label>
+                    <input type="checkbox" name="NewMovie.Genres" value="Sci-Fi"
+                    @(Model.NewMovie?.Genres?.Contains("Sci-Fi") == true ? "checked" : "") /> Sci-Fi
+                </label>
+                <span asp-validation-for="NewMovie.Genres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewMovie.Year"></label>
+                <input asp-for="NewMovie.Year" class="form-control" />
+                <span asp-validation-for="NewMovie.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewMovie.Rating"></label>
+                <input asp-for="NewMovie.Rating" class="form-control" />
+                <span asp-validation-for="NewMovie.Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewMovie.Description"></label>
+                <textarea asp-for="NewMovie.Description" class="form-control"></textarea>
+                <span asp-validation-for="NewMovie.Description" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="addMovieBtn">Add Movie</button>
+        </form>
+    </div>
+
+    <h2>Movie List</h2>
+    @{
+        var allGenres = new List<string> { "Action", "Comedy", "Drama", "Horror", "Sci-Fi" };
+    }
+    <table class=" table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Genres</th>
+                <th>Release Year</th>
+                <th>Rating</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model.Movies)
+            {
+                if (Model.MovieId == movie.Id)
+                {
+                    <form method="post" asp-page-handler="SaveEdit">
+                    <tr>
+                        <td><input asp-for="EditableMovie.Title" class="form-control" /></td>
+                        <td>
+                                @foreach (var genre in allGenres)
+                                {
+                                <label class="me-2">
+                                    <input type="checkbox"
+                                           name="EditableMovie.Genres"
+                                           value="@genre"
+                                        @(Model.EditableMovie != null && Model.EditableMovie.Genres.Contains(genre) ? "checked" : "") />
+                                        @genre
+                                </label>
+                                }
+                        </td>
+                        <td><input asp-for="EditableMovie.Year" class="form-control" /></td>
+                        <td><input asp-for="EditableMovie.Rating" class="form-control" /></td>
+                        <td>
+                            <button type="submit" class="btn btn-success">Save</button>
+                            <form method="post" asp-page-handler="CancelEdit" style="display:inline;">
+                                <button type="submit" class="btn btn-secondary">Cancel</button>
+                            </form>
+                            <input type="hidden" asp-for="EditableMovie.Id" />
+                        </td>
+                    </tr>
+                    </form>
+                }
+                else
+                {
+                    <tr>
+                        <th>@movie.Title</th>
+                        <th>@string.Join(",", movie.Genres)</th>
+                        <th>@movie.Year</th>
+                        <th>@movie.Rating</th>
+                        <th>
+                            <form method="post" asp-page-handler="EditMovie" asp-route-id="@movie.Id" style="display:inline;">
+                                <button type="submit" class="btn btn-primary">Edit</button>
+                            </form>
+                            <form method="post" asp-page-handler="DeleteMovie" asp-route-id="@movie.Id" style="display:inline;">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </th>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.getElementById("showFormBtn").addEventListener("click", function () {
+            var form = document.getElementById("movieForm");
+            if (form.style.display === "none") {
+                form.style.display = "block";
+            } else {
+                form.style.display = "none";
+            }
+        });
+    </script>
+}

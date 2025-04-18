@@ -1,0 +1,42 @@
+[
+  {
+    "Id": 1,
+    "Title": "Parasite",
+    "Genres": [ "Drama", "Thriller" ],
+    "Year": 2019,
+    "Rating": 8.6,
+    "Description": "A poor South Korean family schemes to become employed by a wealthy family by infiltrating their household and posing as unrelated, highly qualified individuals."
+  },
+  {
+    "Id": 2,
+    "Title": "Nomadland",
+    "Genres": [ "Drama" ],
+    "Year": 2020,
+    "Rating": 7.4,
+    "Description": "Following the economic collapse of a company town in rural Nevada, a woman embarks on a journey through the American West, living as a modern-day nomad."
+  },
+  {
+    "Id": 3,
+    "Title": "CODA",
+    "Genres": [ "Drama", "Music" ],
+    "Year": 2021,
+    "Rating": 8.0,
+    "Description": "As a CODA (Child of Deaf Adults), Ruby is the only hearing person in her deaf family. When she discovers a passion for singing, she must choose between family obligations and her dreams."
+  },
+  {
+    "Id": 4,
+    "Title": "Everything Everywhere All at Once",
+    "Genres": [ "Action", "Adventure", "Comedy" ],
+    "Year": 2022,
+    "Rating": 8.1,
+    "Description": "An aging Chinese immigrant is swept up in an insane adventure, where she alone can save the world by exploring other universes and connecting with the lives she could have led."
+  },
+  {
+    "Id": 5,
+    "Title": "Oppenheimer",
+    "Genres": [ "Biography", "Drama", "History" ],
+    "Year": 2023,
+    "Rating": 8.4,
+    "Description": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II."
+  }
+]
