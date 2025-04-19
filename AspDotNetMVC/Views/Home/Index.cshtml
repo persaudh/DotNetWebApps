@@ -1,0 +1,28 @@
+﻿@inject ILocalizedText LocalizedText
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="message">
+        <h1 class="display-4">@LocalizedText.GetPageTitle("de")</h1>
+        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+    <p>
+        <div>Tag Helpers:</div>
+        <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </p>
+
+    <p>
+        <div>Url Helper: Action</div>
+        <a href="@Url.Action("Privacy", "Home")">Privacy</a>
+    </p>
+
+    <p>
+        <div>Url Helper: Action Link</div>
+        <a href="@Url.ActionLink("Privacy", "Home")">Privacy</a>
+    </p>
+
+    @await Component.InvokeAsync("TopProducts", new { count = 5 })
+</div>
