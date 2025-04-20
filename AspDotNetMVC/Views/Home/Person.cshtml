@@ -5,4 +5,6 @@
 }
 
 <h1>@Model.Name</h1>
-<p><b>Age:</b>@Model.Age</p>
+<p><b>Age:</b>@Model.Age <u>(View Model - The Best Solution)</u></p>
+<p>Lucky Number: @ViewData["LuckyNumber"] <u>(View Data - Not Recommended)</u></p>
+<p>Home Address:@ViewBag.HomeAddress <u>(View Bag - Recommended Over ViewData)</u></p>

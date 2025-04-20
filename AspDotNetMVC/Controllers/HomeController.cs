@@ -1,10 +1,11 @@
-using AspDotNetMVC.Models;
+using AspDotNetCoreMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using AspDotNetCoreMVC.Data;
 using AspDotNetCoreMVC.Models;
+using AspDotNetCoreMVC.Filters;
 
-namespace AspDotNetMVC.Controllers
+namespace AspDotNetCoreMVC.Controllers
 {
     public class HomeController : Controller
     {
@@ -33,6 +34,8 @@ namespace AspDotNetMVC.Controllers
         {
             var persons = _personService.GetAll();
             var viewModel = new PersonViewModel(persons.First());
+            ViewData["LuckyNumber"] = 20;
+            ViewBag.HomeAddress = "123 Main St, Springfield, USA";
 
             return View(viewModel);
         }
@@ -46,6 +49,18 @@ namespace AspDotNetMVC.Controllers
         public IActionResult BlogPost()
         {
             return View();
+        }
+
+        public IActionResult ToDo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateModel]
+        public IActionResult Create(TodoItem item)
+        {
+            return Ok($"Item '{item.Text}' created.");
         }
     }
 }

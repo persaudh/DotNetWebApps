@@ -1,4 +1,4 @@
-namespace AspDotNetMVC.Models
+namespace AspDotNetCoreMVC.Models
 {
     public class ErrorViewModel
     {
