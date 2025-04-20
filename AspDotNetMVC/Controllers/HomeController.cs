@@ -2,7 +2,6 @@ using AspDotNetCoreMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using AspDotNetCoreMVC.Data;
-using AspDotNetCoreMVC.Models;
 using AspDotNetCoreMVC.Filters;
 
 namespace AspDotNetCoreMVC.Controllers
