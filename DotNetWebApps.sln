@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{02
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lessons", "Lessons", "{176A028C-4706-4771-A340-1DC62D33BD2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieDirectoryDotNetCoreMVC", "MovieDirectoryDotNetCoreMVC\MovieDirectoryDotNetCoreMVC.csproj", "{387C8778-A3E9-4BDB-8A4F-5C19938B9E9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{8ECB2AB4-DE35-40D9-AF3C-BCCC85D363D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ECB2AB4-DE35-40D9-AF3C-BCCC85D363D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ECB2AB4-DE35-40D9-AF3C-BCCC85D363D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{387C8778-A3E9-4BDB-8A4F-5C19938B9E9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{387C8778-A3E9-4BDB-8A4F-5C19938B9E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{387C8778-A3E9-4BDB-8A4F-5C19938B9E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{387C8778-A3E9-4BDB-8A4F-5C19938B9E9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{1E2AA605-0E25-4EAE-85DF-859B1E73565B} = {176A028C-4706-4771-A340-1DC62D33BD2E}
 		{9066DEB8-17AD-45F7-8D1C-D6B9520CE9C3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{8ECB2AB4-DE35-40D9-AF3C-BCCC85D363D5} = {176A028C-4706-4771-A340-1DC62D33BD2E}
+		{387C8778-A3E9-4BDB-8A4F-5C19938B9E9F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5BC8C9AC-DBC8-4A71-9D68-676769094C84}
