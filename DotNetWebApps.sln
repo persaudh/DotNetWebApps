@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieDirectory", "MovieDire
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspDotNetCoreMVC", "AspDotNetMVC\AspDotNetCoreMVC.csproj", "{8ECB2AB4-DE35-40D9-AF3C-BCCC85D363D5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lessons", "Lessons", "{176A028C-4706-4771-A340-1DC62D33BD2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{898A7A0B-F1EC-484A-AF7E-5CFDC5894875} = {176A028C-4706-4771-A340-1DC62D33BD2E}
+		{1E2AA605-0E25-4EAE-85DF-859B1E73565B} = {176A028C-4706-4771-A340-1DC62D33BD2E}
+		{9066DEB8-17AD-45F7-8D1C-D6B9520CE9C3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{8ECB2AB4-DE35-40D9-AF3C-BCCC85D363D5} = {176A028C-4706-4771-A340-1DC62D33BD2E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5BC8C9AC-DBC8-4A71-9D68-676769094C84}
