@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MovieDirectoryDotNetCoreMVC.Data;
+using MovieDirectoryDotNetCoreMVC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,11 @@ builder.Services.AddDbContext<MovieDirectoryContext>(options =>
         maxRetryDelay: TimeSpan.FromSeconds(10),
         errorNumbersToAdd: null)
 ));
+
+
+builder.Services.AddScoped<IGenreService, GenreService>();
+builder.Services.AddScoped<IRatingService, RatingService>();
+builder.Services.AddScoped<IMovieService, MovieService>();
 
 var app = builder.Build();
 
