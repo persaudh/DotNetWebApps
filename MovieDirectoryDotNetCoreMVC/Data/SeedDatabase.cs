@@ -114,6 +114,8 @@ namespace MovieDirectoryDotNetCoreMVC.Data
 
             if (movieGenereEntity != null)
             {
+                //if(!context.Set<Dictionary<string, object>>(movieGenereEntity.Name).Any())
+                //{
                 var movieGenresJson = File.ReadAllText("Data/SeedData/MovieGenres.json");
                 var movieGeneres = JsonSerializer.Deserialize<List<Dictionary<string, int>>>(movieGenresJson);
 
@@ -121,14 +123,23 @@ namespace MovieDirectoryDotNetCoreMVC.Data
 
                 foreach (var movieGenre in movieGeneres)
                 {
-                    movieGenresTable.Add(new Dictionary<string, object>
+                    var exists = movieGenresTable.Any(mg =>
+                        mg["MoviesId"].Equals(movieGenre["MoviesId"]) &&
+                        mg["GenresId"].Equals(movieGenre["GenresId"]));
+                    if (!exists)
                     {
-                        ["MoviesId"] = movieGenre["MoviesId"],
-                        ["GenresId"] = movieGenre["GenresId"]
-                    });
+                        // Assuming the JSON contains MoviesId and GenresId
+                        movieGenresTable.Add(new Dictionary<string, object>
+                        {
+                            ["MoviesId"] = movieGenre["MoviesId"],
+                            ["GenresId"] = movieGenre["GenresId"]
+                        });
+                    }
                 }
-                context.SaveChanges();
             }
+            context.SaveChanges();
+            // }
+
         }
     }
 }

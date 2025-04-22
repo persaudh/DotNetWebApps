@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MovieDirectoryDotNetCoreMVC.Models;
+using MovieDirectoryDotNetCoreMVC.Services;
 using System.Diagnostics;
 
 namespace MovieDirectoryDotNetCoreMVC.Controllers
@@ -7,15 +8,22 @@ namespace MovieDirectoryDotNetCoreMVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IMovieService _movieService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IMovieService movieService)
         {
             _logger = logger;
+            _movieService = movieService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var movies = _movieService.GetAllMoviesAsync().Result;
+            var indexViewModel = new IndexViewModel
+            {
+                Movies = movies
+            };
+            return View(indexViewModel);
         }
 
         public IActionResult Privacy()
