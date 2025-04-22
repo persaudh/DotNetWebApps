@@ -1,62 +1,266 @@
 [
   {
-    "Id": 1,
     "Title": "Inception",
     "Description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
     "ReleaseDate": "2010-07-16",
     "ImageUrl": "https://example.com/inception.jpg",
     "RatingId": 3,
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+
+    "ModifiedBy": "Initial"
+
   },
   {
-    "Id": 2,
     "Title": "The Dark Knight",
     "Description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
     "ReleaseDate": "2008-07-18",
     "ImageUrl": "https://example.com/dark_knight.jpg",
     "RatingId": 3,
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+
+    "ModifiedBy": "Initial"
+
   },
   {
-    "Id": 3,
     "Title": "Interstellar",
     "Description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
     "ReleaseDate": "2014-11-07",
     "ImageUrl": "https://example.com/interstellar.jpg",
     "RatingId": 3,
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+
+    "ModifiedBy": "Initial"
+
   },
   {
-    "Id": 4,
     "Title": "The Matrix",
     "Description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
     "ReleaseDate": "1999-03-31",
     "ImageUrl": "https://example.com/matrix.jpg",
     "RatingId": 3,
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+
+    "ModifiedBy": "Initial"
+
   },
   {
-    "Id": 5,
     "Title": "The Shawshank Redemption",
     "Description": "Andy Dufresne, a banker who is sentenced to life in Shawshank State Penitentiary for a murder he did not commit",
     "ReleaseDate": "1994-10-14",
     "ImageUrl": "https://example.com/The_Shawshank_Redemption.jpg",
     "RatingId": 4,
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "Forrest Gump",
+    "Description": "The story of Forrest Gump, a man with a low IQ who achieves great things in life",
+    "ReleaseDate": "1994-07-06",
+    "ImageUrl": "https://example.com/Forrest_Gump.jpg",
+    "RatingId": 3,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "The Godfather",
+    "Description": "The aging patriarch of an organized crime dynasty transfers control to his reluctant son",
+    "ReleaseDate": "1972-03-24",
+    "ImageUrl": "https://example.com/The_Godfather.jpg",
+    "RatingId": 4,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "Titanic",
+    "Description": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the ill-fated Titanic",
+    "ReleaseDate": "1997-12-19",
+    "ImageUrl": "https://example.com/Titanic.jpg",
+    "RatingId": 3,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "Schindler's List",
+    "Description": "In German-occupied Poland during WWII, Oskar Schindler gradually becomes concerned for his Jewish workforce",
+    "ReleaseDate": "1993-12-15",
+    "ImageUrl": "https://example.com/Schindlers_List.jpg",
+    "RatingId": 4,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "The Green Mile",
+    "Description": "A death row corrections officer discovers supernatural events surrounding one of his inmates",
+    "ReleaseDate": "1999-12-10",
+    "ImageUrl": "https://example.com/The_Green_Mile.jpg",
+    "RatingId": 4,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "Gladiator",
+    "Description": "A former Roman general seeks revenge after being betrayed and forced into slavery",
+    "ReleaseDate": "2000-05-05",
+    "ImageUrl": "https://example.com/Gladiator.jpg",
+    "RatingId": 4,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "The King's Speech",
+    "Description": "King George VI overcomes his stammer with the help of an unorthodox speech therapist",
+    "ReleaseDate": "2010-12-25",
+    "ImageUrl": "https://example.com/The_Kings_Speech.jpg",
+    "RatingId": 3,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "Slumdog Millionaire",
+    "Description": "A Mumbai teen reflects on his life after being accused of cheating on a game show",
+    "ReleaseDate": "2008-11-12",
+    "ImageUrl": "https://example.com/Slumdog_Millionaire.jpg",
+    "RatingId": 4,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "The Social Network",
+    "Description": "The rise of Facebook and the lawsuits that followed its creation",
+    "ReleaseDate": "2010-10-01",
+    "ImageUrl": "https://example.com/The_Social_Network.jpg",
+    "RatingId": 4,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "La La Land",
+    "Description": "A jazz pianist and an aspiring actress fall in love while pursuing their dreams in Los Angeles",
+    "ReleaseDate": "2016-12-09",
+    "ImageUrl": "https://example.com/La_La_Land.jpg",
+    "RatingId": 3,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "The Revenant",
+    "Description": "A frontiersman on a fur trading expedition fights for survival after being mauled by a bear",
+    "ReleaseDate": "2015-12-25",
+    "ImageUrl": "https://example.com/The_Revenant.jpg",
+    "RatingId": 4,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "Black Swan",
+    "Description": "A committed dancer struggles with the pressure of perfection and her own sanity",
+    "ReleaseDate": "2010-12-17",
+    "ImageUrl": "https://example.com/Black_Swan.jpg",
+    "RatingId": 4,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "No Country for Old Men",
+    "Description": "A hunter’s life turns upside down after discovering a drug deal gone wrong and a suitcase full of cash",
+    "ReleaseDate": "2007-11-09",
+    "ImageUrl": "https://example.com/No_Country_for_Old_Men.jpg",
+    "RatingId": 4,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "Everything Everywhere All At Once",
+    "Description": "An unlikely hero must channel her newfound powers to fight bizarre and bewildering dangers across the multiverse",
+    "ReleaseDate": "2022-03-11",
+    "ImageUrl": "https://example.com/Everything_Everywhere_All_At_Once.jpg",
+    "RatingId": 4,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "Toy Story",
+    "Description": "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.",
+    "ReleaseDate": "1995-11-22",
+    "ImageUrl": "https://example.com/Toy_Story.jpg",
+    "RatingId": 2,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "Finding Nemo",
+    "Description": "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.",
+    "ReleaseDate": "2003-05-30",
+    "ImageUrl": "https://example.com/Finding_Nemo.jpg",
+    "RatingId": 2,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "Up",
+    "Description": "78-year-old Carl sets out to fulfill his dream to see the wilds of South America by tying thousands of balloons to his house.",
+    "ReleaseDate": "2009-05-29",
+    "ImageUrl": "https://example.com/Up.jpg",
+    "RatingId": 2,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "Babe",
+    "Description": "Babe, a pig raised by sheepdogs, learns to herd sheep with a little help from Farmer Hoggett.",
+    "ReleaseDate": "1995-08-04",
+    "ImageUrl": "https://example.com/Babe.jpg",
+    "RatingId": 1,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
+  },
+  {
+    "Title": "The Sound of Music",
+    "Description": "A woman leaves an Austrian convent to become a governess to the children of a Naval officer widower.",
+    "ReleaseDate": "1965-04-01",
+    "ImageUrl": "https://example.com/The_Sound_of_Music.jpg",
+    "RatingId": 1,
+    "CreatedBy": "Initial",
+
+    "ModifiedBy": "Initial"
+
   }
 ]

@@ -1,164 +1,128 @@
 [
   {
-    "Id": 1,
     "Name": "Drama",
     "Description": "Drama films explore realistic characters, emotional themes, and interpersonal conflict.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 2,
     "Name": "Romance",
     "Description": "Romance films center on love stories and emotional relationships between characters.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 3,
     "Name": "Comedy",
     "Description": "Comedy films are designed to make the audience laugh through amusement and humor.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 4,
     "Name": "Crime",
     "Description": "Crime films focus on the lives of criminals and the consequences of criminal acts.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 5,
     "Name": "History",
     "Description": "History films depict past events, notable figures, and historic achievements.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 6,
     "Name": "Biography",
     "Description": "Biography films tell the life story of a real person or highlight significant life events.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 7,
     "Name": "Adventure",
     "Description": "Adventure films are exciting stories, with new experiences or exotic locales.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 8,
     "Name": "Fantasy",
     "Description": "Fantasy films include magical elements, mythical creatures, and fantastical worlds.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 9,
     "Name": "Thriller",
     "Description": "Thriller films use suspense, tension, and excitement to keep the audience on edge.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 10,
     "Name": "Animation",
     "Description": "Animation films are created using drawings, CGI, or stop-motion to tell a story.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 11,
     "Name": "Family",
     "Description": "Family films are made to be suitable and enjoyable for children and adults alike.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 12,
     "Name": "Musical",
     "Description": "Musical films incorporate songs and dance to advance the plot or develop characters.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 13,
     "Name": "Mystery",
     "Description": "Mystery films revolve around the solution of a puzzle or crime.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 14,
     "Name": "Action",
     "Description": "Action movies are characterized by a resourceful hero struggling against incredible odds, which may include life-threatening situations, a villain, or pursuit.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 15,
     "Name": "War",
     "Description": "War films focus on battles, military life, and the effects of conflict on individuals.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 16,
     "Name": "Western",
     "Description": "Western films are set in the American frontier, often featuring cowboys and outlaws.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 17,
     "Name": "Sci-Fi",
     "Description": "Sci-Fi films explore futuristic concepts, space exploration, and advanced technology.",
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "CreatedBy": "Initial",   
+    "ModifiedBy": "Initial"
+    
   },
   {
-    "Id": 18,
     "Name": "Horror",
     "Description": "Horror films aim to evoke fear, often featuring supernatural elements or psychological terror.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+    "ModifiedBy": "Initial"
+    
   }
 ]

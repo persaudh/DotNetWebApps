@@ -1,275 +1,42 @@
 [
   {
-    "Id": 1,
     "Name": "G",
     "Description": "General audiences. All ages are admitted. Parents are strongly cautioned that some material may be inappropriate for children.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+
+    "ModifiedBy": "Initial"
+
   },
   {
-    "Id": 2,
     "Name": "PG",
     "Description": "Parental guidance suggested. Some material may not be suitable for children.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+
+    "ModifiedBy": "Initial"
+
   },
   {
-    "Id": 3,
     "Name": "PG-13",
     "Description": "Parents are strongly cautioned. Some material may be inappropriate for children under 13.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+
+    "ModifiedBy": "Initial"
+
   },
   {
-    "Id": 4,
     "Name": "R",
     "Description": "Restricted. Parents are strongly cautioned. Some material may be inappropriate for children under 17.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+
+    "ModifiedBy": "Initial"
+
   },
   {
-    "Id": 5,
     "Name": "NC-17",
     "Description": "No one 17 and under admitted. Clearly adult. Children are not admitted.",
     "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 6,
-    "Title": "Forrest Gump",
-    "Description": "The story of Forrest Gump, a man with a low IQ who achieves great things in life",
-    "ReleaseDate": "1994-07-06",
-    "ImageUrl": "https://example.com/Forrest_Gump.jpg",
-    "RatingId": 3,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 7,
-    "Title": "The Godfather",
-    "Description": "The aging patriarch of an organized crime dynasty transfers control to his reluctant son",
-    "ReleaseDate": "1972-03-24",
-    "ImageUrl": "https://example.com/The_Godfather.jpg",
-    "RatingId": 4,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 8,
-    "Title": "Titanic",
-    "Description": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the ill-fated Titanic",
-    "ReleaseDate": "1997-12-19",
-    "ImageUrl": "https://example.com/Titanic.jpg",
-    "RatingId": 3,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 9,
-    "Title": "Schindler's List",
-    "Description": "In German-occupied Poland during WWII, Oskar Schindler gradually becomes concerned for his Jewish workforce",
-    "ReleaseDate": "1993-12-15",
-    "ImageUrl": "https://example.com/Schindlers_List.jpg",
-    "RatingId": 4,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 10,
-    "Title": "The Green Mile",
-    "Description": "A death row corrections officer discovers supernatural events surrounding one of his inmates",
-    "ReleaseDate": "1999-12-10",
-    "ImageUrl": "https://example.com/The_Green_Mile.jpg",
-    "RatingId": 4,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 11,
-    "Title": "Gladiator",
-    "Description": "A former Roman general seeks revenge after being betrayed and forced into slavery",
-    "ReleaseDate": "2000-05-05",
-    "ImageUrl": "https://example.com/Gladiator.jpg",
-    "RatingId": 4,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 12,
-    "Title": "The King's Speech",
-    "Description": "King George VI overcomes his stammer with the help of an unorthodox speech therapist",
-    "ReleaseDate": "2010-12-25",
-    "ImageUrl": "https://example.com/The_Kings_Speech.jpg",
-    "RatingId": 3,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 13,
-    "Title": "Slumdog Millionaire",
-    "Description": "A Mumbai teen reflects on his life after being accused of cheating on a game show",
-    "ReleaseDate": "2008-11-12",
-    "ImageUrl": "https://example.com/Slumdog_Millionaire.jpg",
-    "RatingId": 4,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 14,
-    "Title": "The Social Network",
-    "Description": "The rise of Facebook and the lawsuits that followed its creation",
-    "ReleaseDate": "2010-10-01",
-    "ImageUrl": "https://example.com/The_Social_Network.jpg",
-    "RatingId": 4,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 15,
-    "Title": "La La Land",
-    "Description": "A jazz pianist and an aspiring actress fall in love while pursuing their dreams in Los Angeles",
-    "ReleaseDate": "2016-12-09",
-    "ImageUrl": "https://example.com/La_La_Land.jpg",
-    "RatingId": 3,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 16,
-    "Title": "The Revenant",
-    "Description": "A frontiersman on a fur trading expedition fights for survival after being mauled by a bear",
-    "ReleaseDate": "2015-12-25",
-    "ImageUrl": "https://example.com/The_Revenant.jpg",
-    "RatingId": 4,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 17,
-    "Title": "Black Swan",
-    "Description": "A committed dancer struggles with the pressure of perfection and her own sanity",
-    "ReleaseDate": "2010-12-17",
-    "ImageUrl": "https://example.com/Black_Swan.jpg",
-    "RatingId": 4,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 18,
-    "Title": "No Country for Old Men",
-    "Description": "A hunter’s life turns upside down after discovering a drug deal gone wrong and a suitcase full of cash",
-    "ReleaseDate": "2007-11-09",
-    "ImageUrl": "https://example.com/No_Country_for_Old_Men.jpg",
-    "RatingId": 4,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 19,
-    "Title": "Everything Everywhere All At Once",
-    "Description": "An unlikely hero must channel her newfound powers to fight bizarre and bewildering dangers across the multiverse",
-    "ReleaseDate": "2022-03-11",
-    "ImageUrl": "https://example.com/Everything_Everywhere_All_At_Once.jpg",
-    "RatingId": 4,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 20,
-    "Title": "Toy Story",
-    "Description": "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.",
-    "ReleaseDate": "1995-11-22",
-    "ImageUrl": "https://example.com/Toy_Story.jpg",
-    "RatingId": 2,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 21,
-    "Title": "Finding Nemo",
-    "Description": "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.",
-    "ReleaseDate": "2003-05-30",
-    "ImageUrl": "https://example.com/Finding_Nemo.jpg",
-    "RatingId": 2,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 22,
-    "Title": "Up",
-    "Description": "78-year-old Carl sets out to fulfill his dream to see the wilds of South America by tying thousands of balloons to his house.",
-    "ReleaseDate": "2009-05-29",
-    "ImageUrl": "https://example.com/Up.jpg",
-    "RatingId": 2,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 23,
-    "Title": "Babe",
-    "Description": "Babe, a pig raised by sheepdogs, learns to herd sheep with a little help from Farmer Hoggett.",
-    "ReleaseDate": "1995-08-04",
-    "ImageUrl": "https://example.com/Babe.jpg",
-    "RatingId": 1,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
-  },
-  {
-    "Id": 24,
-    "Title": "The Sound of Music",
-    "Description": "A woman leaves an Austrian convent to become a governess to the children of a Naval officer widower.",
-    "ReleaseDate": "1965-04-01",
-    "ImageUrl": "https://example.com/The_Sound_of_Music.jpg",
-    "RatingId": 1,
-    "CreatedBy": "Initial",
-    "CreatedDate": "Seeder",
-    "ModifiedBy": "Initial",
-    "ModifiedDate": "Seeder"
+
+    "ModifiedBy": "Initial"
+
   }
 ]

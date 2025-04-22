@@ -5,18 +5,27 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<MovieDirectoryContext>(options => 
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<MovieDirectoryContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+    sqlServerOptions => sqlServerOptions.EnableRetryOnFailure(
+        maxRetryCount: 5,
+        maxRetryDelay: TimeSpan.FromSeconds(10),
+        errorNumbersToAdd: null)
+));
 
 var app = builder.Build();
 
-SeedDatabase.Initialize(app.Services, builder.Configuration);
-
-using(var scope = app.Services.CreateScope())
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment() || app.Environment.IsStaging())
 {
-    var db = scope.ServiceProvider.GetRequiredService<MovieDirectoryContext>();
-    db.Database.Migrate();
+    using (var scope = app.Services.CreateScope())
+    {
+        var db = scope.ServiceProvider.GetRequiredService<MovieDirectoryContext>();
+        db.Database.Migrate();
+    }
 }
+// Seed the database with initial data
+SeedDatabase.Initialize(app.Services, builder.Configuration);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

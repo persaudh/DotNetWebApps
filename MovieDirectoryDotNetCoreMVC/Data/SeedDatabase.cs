@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace MovieDirectoryDotNetCoreMVC.Data
 {
@@ -6,6 +7,12 @@ namespace MovieDirectoryDotNetCoreMVC.Data
     {
         private readonly IConfiguration _configuration;
         private readonly IServiceProvider _serviceProvider;
+
+        /// <summary>
+        /// Initializes the database with seed data.
+        /// </summary>
+        /// <param name="serviceProvider"></param>
+        /// <param name="configuration"></param>
         public static void Initialize(IServiceProvider serviceProvider, IConfiguration configuration)
         {
             InitilizeGenres(serviceProvider);
@@ -14,6 +21,10 @@ namespace MovieDirectoryDotNetCoreMVC.Data
             InitializeMovieGenres(serviceProvider);
         }
 
+        /// <summary>
+        /// Initializes the genres in the database.
+        /// </summary>
+        /// <param name="serviceProvider"></param>
         public static void InitilizeGenres(IServiceProvider serviceProvider)
         {
             using var scope = serviceProvider.CreateScope();
@@ -24,7 +35,7 @@ namespace MovieDirectoryDotNetCoreMVC.Data
                 var genresJson = File.ReadAllText("Data/SeedData/Genres.json");
                 var genres = JsonSerializer.Deserialize<List<Genre>>(genresJson);
 
-                var now = DateTime.Now;
+                var now = DateTime.UtcNow;
 
                 foreach (var genre in genres)
                 {
@@ -36,6 +47,11 @@ namespace MovieDirectoryDotNetCoreMVC.Data
                 context.SaveChanges();
             }
         }
+
+        /// <summary>
+        /// Initializes the ratings in the database.
+        /// </summary>
+        /// <param name="serviceProvider"></param>
         public static void InitializeRatings(IServiceProvider serviceProvider)
         {
             using var scope = serviceProvider.CreateScope();
@@ -46,7 +62,7 @@ namespace MovieDirectoryDotNetCoreMVC.Data
                 var ratingsJson = File.ReadAllText("Data/SeedData/Ratings.json");
                 var ratings = JsonSerializer.Deserialize<List<Rating>>(ratingsJson);
 
-                var now = DateTime.Now;
+                var now = DateTime.UtcNow;
 
                 foreach (var rating in ratings)
                 {
@@ -59,6 +75,10 @@ namespace MovieDirectoryDotNetCoreMVC.Data
             }
         }
 
+        /// <summary>
+        /// Initializes the movies in the database.
+        /// </summary>  
+        /// <param name="serviceProvider"
         public static void InitializeMovies(IServiceProvider serviceProvider)
         {
             using var scope = serviceProvider.CreateScope();
@@ -69,7 +89,7 @@ namespace MovieDirectoryDotNetCoreMVC.Data
                 var moviesJson = File.ReadAllText("Data/SeedData/Movies.json");
                 var movies = JsonSerializer.Deserialize<List<Movie>>(moviesJson);
 
-                var now = DateTime.Now;
+                var now = DateTime.UtcNow;
                 foreach (var movie in movies)
                 {
                     movie.CreatedDate = now;
@@ -80,12 +100,18 @@ namespace MovieDirectoryDotNetCoreMVC.Data
             }
         }
 
+        /// <summary>
+        /// Initializes the MovieGenres in the database.
+        /// </summary>  
+        /// <param name="serviceProvider"
         public static void InitializeMovieGenres(IServiceProvider serviceProvider)
         {
             using var scope = serviceProvider.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<MovieDirectoryContext>();
 
-            var movieGenereEntity = context.Model.FindEntityType("MovieGeners");
+            var movieGenereEntity = context.Model.GetEntityTypes()
+                .FirstOrDefault(e => e.Name.Contains("MovieGenre") || e.GetTableName() == "MovieGenres");
+
             if (movieGenereEntity != null)
             {
                 var movieGenresJson = File.ReadAllText("Data/SeedData/MovieGenres.json");
@@ -97,10 +123,11 @@ namespace MovieDirectoryDotNetCoreMVC.Data
                 {
                     movieGenresTable.Add(new Dictionary<string, object>
                     {
-                        ["MovieId"] = movieGenre["MovieId"],
-                        ["GenreId"] = movieGenre["GenreId"]
+                        ["MoviesId"] = movieGenre["MoviesId"],
+                        ["GenresId"] = movieGenre["GenresId"]
                     });
                 }
+                context.SaveChanges();
             }
         }
     }
