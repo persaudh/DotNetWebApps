@@ -5,25 +5,60 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Movie Title</th>
-                <th>Release Year</th>
-                <th>Genre</th>
-                <th>Rating</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var movie in Model.Movies)
-            {
-                <tr>
-                    <td>@movie.Title</td>
-                    <td>@movie.Description</td>
-                    <td>@string.Join(',',movie.Genres.Select(g => g.Name))</td>
-                    <td>@movie.Rating.Name</td>
-                </tr>
-            }
-    </table>
+    <form method="get" id="genre-filter-form">
+        <div class="btn-group">
+            <button class="btn btn-secondary btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Filter Genre
+            </button>
+            <ul class="dropdown-menu px-3">
+                @foreach (var genre in Model.Genres)
+                {
+                    var isChecked = ((List<int>)Model.SelectGenreIds)?.Contains(genre.Id) ?? false;
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input genre-checkbox" type="checkbox" name="genreIds" value="@genre.Id" id="genre_@genre.Id"
+                            @(isChecked ? "checked" : "") />
+                            <label class="form-check-label" for="genre_@genre.Id">
+                                @genre.Name
+                            </label>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </form>
+    <div class="btn-group">
+        <button class="btn btn-secondary btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Rating
+        </button>
+        <ul class="dropdown-menu">
+        </ul>
+    </div>
+    <div class="row">
+        @foreach (var movie in Model.Movies)
+        {
+            <div class="col-md-3" style="padding-bottom: 10px;">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="..." class="card-img-top" alt="...">
+                        <h5 class="card-title">@movie.Title</h5>
+                        <p class="card-text">@movie.Description</p>
+                        <p class="card-text"><small class="text-body-secondary">@string.Join(',', movie.Genres.Select(g => g.Name))</small></p>
+                        <p class="card-text"><small class="text-body-secondary">@movie.Rating.Name</small></p>
+                        <div style="display:inline;">
+                            <button class="btn btn-primary">Seen</button>
+                            <button class="btn btn-primary">Watch</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
+<script>
+    document.querySelectorAll('.genre-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            document.getElementById('genre-filter-form').submit();
+        });
+    });
+</script>

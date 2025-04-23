@@ -14,6 +14,7 @@ namespace MovieDirectoryDotNetCoreMVC.Services
         {
             return await _context.Ratings
                 .Include(r => r.Movies)
+                .OrderBy(r => r.Id)
                 .ToListAsync();
         }
     }

@@ -15,6 +15,7 @@ namespace MovieDirectoryDotNetCoreMVC.Services
         {
             return await _context.Genres
                 .Include(g => g.Movies)
+                .OrderBy(g => g.Name)
                 .ToListAsync();
         }
     }
