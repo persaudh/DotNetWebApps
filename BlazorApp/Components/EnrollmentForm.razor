@@ -1,29 +1,35 @@
 ﻿@rendermode InteractiveServer
 @attribute [StreamRendering]
 
-<h3>EnrollmentForm</h3>
-<div class="row">
-    <div class="col-6">
-        <label class="form-label" for="FirstName">First Name:</label>
-        <input class="input-group" type="text" id="FirstName" name="@NewStudent.FirstName" />
+<div class="bg-gray ">
+    <h3>@SchoolName</h3>
+    <h4 class="@SchoolStyle">Students Enrolled: @NumberOfStudents SchoolGPA: @SchoolGPA</h4>
+    <div class="row">
+        <div class="col-6">
+            <label class="form-label" for="FirstName">First Name:</label>
+            <input class="input-group" type="text" id="FirstName" name="@NewStudent.FirstName" />
+        </div>
+        <div class="col-6">
+            <label class="form-label" for="LastName">Last Name:</label>
+            <input class="input-group" type="text" id="LastName" name="@NewStudent.LastName" />
+        </div>
     </div>
-    <div class="col-6">
-        <label class="form-label" for="LastName">Last Name:</label>
-        <input class="input-group" type="text" id="LastName" name="@NewStudent.LastName" />
+    <div class="row">
+        <div class="col-6">
+            <label class="form-label" for="GradeLevel">Grade Level:</label>
+            <input class="input-group" type="number" id="GradeLevel" name="@NewStudent.GradeLevel" />
+        </div>
+        <div class="col-6">
+            <label class="form-label" for="GPA">GPA:</label>
+            <input class="input-group" type="number" id="GPA" name="@NewStudent.GPA" />
+        </div>
     </div>
+    <div class="padding-10">
+        <button class="btn btn-primary btn-sm" @onclick="OnValidSubmit">Submit</button>
+    </div>
+
 </div>
-<div class="row">
-    <div class="col-6">
-        <label class="form-label" for="GradeLevel">Grade Level:</label>
-        <input class="input-group" type="number" id="GradeLevel" name="@NewStudent.GradeLevel" />
-    </div>
-    <div class="col-6">
-        <label class="form-label" for="GPA">GPA:</label>
-        <input class="input-group" type="number" id="GPA" name="@NewStudent.GPA" />
-    </div>
-    <button class="btn btn-primary" @onclick="OnValidSubmit">Submit</button>
-</div>
-@if (students == null)
+@if (students.Count == 0)
 {
     <p>No Data...</p>
 }
@@ -53,8 +59,14 @@ else
 }
 
 @code {
+    [Parameter]
+    [EditorRequired]
+    public required string SchoolName { get ; set; }
     private Student NewStudent = new Student();
     private List<Student>? students = new List<Student>();
+    private int NumberOfStudents { get { return students.Count;}  }
+    private string SchoolStyle;
+    private double? SchoolGPA; 
 
     protected override async Task OnInitializedAsync()
     {
@@ -62,13 +74,34 @@ else
         await Task.Delay(500);
 
         students = new List<Student> { new Student("Hemraj", "Persaud", 12, 4.0) };
+        UpdateSchoolStyle();
     }
+
+    public void UpdateSchoolStyle()
+    {
+        double? GPASums = students.Sum(s => s.GPA);
+        SchoolGPA = double.NaN == GPASums  ? 0 : GPASums/students.Count;
+        switch (SchoolGPA)
+        {
+            case > 3.0:
+                SchoolStyle = "bg-success";
+                break;
+            case >= 2.0:
+                SchoolStyle = "bg-warning";
+                break;
+            default:
+                SchoolStyle = "bg-danger";
+                break;
+        }
+    }
+
 
     private void OnValidSubmit()
     {
         students.Add(NewStudent);
         NewStudent = new Student();
+        UpdateSchoolStyle();
     }
 
-    private record Student(string? FirstName = null, string? LastName = null, int? GradeLevel = null, double? GPA = null);
+    private record Student(string? FirstName = null, string? LastName = null, int? GradeLevel = null, double? GPA = 0);
 }
