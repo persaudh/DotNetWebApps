@@ -1,0 +1,19 @@
+﻿@if(SuccessfulDay)
+{
+    <p class="alert alert-success">@Amount</p>
+}
+else
+{
+    <p class="alert alert-danger">@Amount</p>
+}
+@code {
+    [Parameter]
+    public decimal Amount { get; set; }
+    public bool SuccessfulDay { get; set; }
+
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        SuccessfulDay = parameters.GetValueOrDefault<decimal>(nameof(Amount)) > 500_000;
+        return base.SetParametersAsync(parameters);
+    }
+}

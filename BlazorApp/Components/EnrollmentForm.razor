@@ -1,0 +1,74 @@
+﻿@rendermode InteractiveServer
+@attribute [StreamRendering]
+
+<h3>EnrollmentForm</h3>
+<div class="row">
+    <div class="col-6">
+        <label class="form-label" for="FirstName">First Name:</label>
+        <input class="input-group" type="text" id="FirstName" name="@NewStudent.FirstName" />
+    </div>
+    <div class="col-6">
+        <label class="form-label" for="LastName">Last Name:</label>
+        <input class="input-group" type="text" id="LastName" name="@NewStudent.LastName" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <label class="form-label" for="GradeLevel">Grade Level:</label>
+        <input class="input-group" type="number" id="GradeLevel" name="@NewStudent.GradeLevel" />
+    </div>
+    <div class="col-6">
+        <label class="form-label" for="GPA">GPA:</label>
+        <input class="input-group" type="number" id="GPA" name="@NewStudent.GPA" />
+    </div>
+    <button class="btn btn-primary" @onclick="OnValidSubmit">Submit</button>
+</div>
+@if (students == null)
+{
+    <p>No Data...</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Grade Level</th>
+                <th>GPA</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in students)
+            {
+                <tr>
+                    <td>@student.FirstName</td>
+                    <td>@student.LastName</td>
+                    <td>@student.GradeLevel</td>
+                    <td>@student.GPA</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Student NewStudent = new Student();
+    private List<Student>? students = new List<Student>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Simulate asynchronous loading to demonstrate streaming rendering
+        await Task.Delay(500);
+
+        students = new List<Student> { new Student("Hemraj", "Persaud", 12, 4.0) };
+    }
+
+    private void OnValidSubmit()
+    {
+        students.Add(NewStudent);
+        NewStudent = new Student();
+    }
+
+    private record Student(string? FirstName = null, string? LastName = null, int? GradeLevel = null, double? GPA = null);
+}

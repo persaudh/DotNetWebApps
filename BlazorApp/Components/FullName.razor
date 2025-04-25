@@ -1,0 +1,9 @@
+﻿<h3>@Name</h3>
+
+@code {
+    [Parameter][EditorRequired]
+    public required string FirstName { get; set; }
+    [Parameter][EditorRequired]
+    public required string LastName { get; set; }
+    public string Name { get { return $"{FirstName} {LastName}"; } }
+}
