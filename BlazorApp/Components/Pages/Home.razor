@@ -1,23 +1,40 @@
 ﻿@page "/"
-@rendermode InteractiveServer
+@* @inject IGrettingService GreetingService *@
+@inject IStateService StateService
+@rendermode @(new InteractiveServerRenderMode(prerender:false))
+
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+<div>
+    <RandomNumber></RandomNumber>
+    <FullName FirstName="@FirstName" LastName="Persaud"></FullName>
+    <Search OnSearch="OnSearchText" />
+    You Searched For: @SearchText
+</div>
 
-<RandomNumber></RandomNumber>
-<FullName FirstName="@FirstName" LastName="Persaud"></FullName>
-<Search OnSearch="OnSearchText" />
-You Searched For: @SearchText
+<div>
+    <Revenu Amount="100_000"></Revenu>
+    <Revenu Amount="400_000"></Revenu>
+    <Revenu Amount="700_000"></Revenu>
 
-<Revenu Amount="100_000"></Revenu>
-<Revenu Amount="400_000"></Revenu>
-<Revenu Amount="700_000"></Revenu>
+    <Gretting Name="Hemraj"></Gretting>
+</div>
+<QuickGrid Items="States" Pagination="pagination" Theme="">
+    <PropertyColumn Title="Name" Property="@(s => s.Name)" Sortable="true" />
+    <PropertyColumn Title="Abbreviation" Property="@(s => s.Abbreviation)" Sortable="true" />
+</QuickGrid>
+<Paginator State="pagination"></Paginator>
 
-<Gretting Name="Hemraj"></Gretting>
+@GreetingService.GetGreeting()
 
 <img src="@ImageSource" style="width:600px;" alt="BlazorComic" />
+
+
+
+
 
 @code
 {
@@ -25,6 +42,18 @@ You Searched For: @SearchText
     string FirstName = "Hemraj";
 
     public string SearchText { get; set; } = "";
+
+    [Inject]
+    public required IGrettingService GreetingService { get; set; }
+
+    public IQueryable<State>? States { get; set; } = null;
+    public PaginationState pagination { get; set; } = new PaginationState { ItemsPerPage = 5 };
+
+    protected override void OnInitialized()
+    {
+        States = StateService.GetStates().AsQueryable();
+        base.OnInitialized();
+    }
 
     public void OnSearchText(string text)
     {
