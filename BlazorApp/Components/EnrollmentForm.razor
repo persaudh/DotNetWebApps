@@ -1,5 +1,5 @@
-﻿@rendermode InteractiveServer
-@attribute [StreamRendering]
+﻿@attribute [StreamRendering]
+@rendermode @(new InteractiveServerRenderMode (prerender: false))
 
 <div class="bg-gray ">
     <h3>@SchoolName</h3>
@@ -71,7 +71,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         // Simulate asynchronous loading to demonstrate streaming rendering
-        await Task.Delay(500);
+        //await Task.Delay(500);
 
         students = new List<Student> { new Student("Hemraj", "Persaud", 12, 4.0) };
         UpdateSchoolStyle();
