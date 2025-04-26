@@ -9,11 +9,21 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<input type="text" @onkeydown="KeyDown" @onkeydown:preventDefault/>
+@KeyPressed
+
 @code {
     private int currentCount = 0;
+    private int KeyPressed = 0;
 
-    private void IncrementCount()
+    private Task IncrementCount()
     {
         currentCount++;
+        return Task.CompletedTask;
+    }
+
+    private void KeyDown()
+    {
+        KeyPressed++;
     }
 }

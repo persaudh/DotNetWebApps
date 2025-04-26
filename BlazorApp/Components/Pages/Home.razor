@@ -1,5 +1,5 @@
 ﻿@page "/"
-
+@rendermode InteractiveServer
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
@@ -8,15 +8,26 @@ Welcome to your new app.
 
 <RandomNumber></RandomNumber>
 <FullName FirstName="@FirstName" LastName="Persaud"></FullName>
-<div style="border: solid black;">
-    <EnrollmentForm SchoolName="Hollywood High"></EnrollmentForm>
-</div>
-@code {
-    string FirstName = "Hemraj";
-}
+<Search OnSearch="OnSearchText" />
+You Searched For: @SearchText
 
 <Revenu Amount="100_000"></Revenu>
 <Revenu Amount="400_000"></Revenu>
 <Revenu Amount="700_000"></Revenu>
 
 <Gretting Name="Hemraj"></Gretting>
+
+<img src="@ImageSource" style="width:600px;" alt="BlazorComic" />
+
+@code
+{
+    public string ImageSource { get; set; } = "images/BlazorComic.png";
+    string FirstName = "Hemraj";
+
+    public string SearchText { get; set; } = "";
+
+    public void OnSearchText(string text)
+    {
+        SearchText =  text;
+    }
+}

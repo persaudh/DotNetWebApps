@@ -1,4 +1,5 @@
-﻿@attribute [StreamRendering]
+﻿@page "/enrollment"
+@attribute [StreamRendering]
 @rendermode @(new InteractiveServerRenderMode (prerender: false))
 
 <div class="bg-gray ">
@@ -7,21 +8,21 @@
     <div class="row">
         <div class="col-6">
             <label class="form-label" for="FirstName">First Name:</label>
-            <input class="input-group" type="text" id="FirstName" name="@NewStudent.FirstName" />
+            <input class="input-group" type="text" id="FirstName" @bind="FirstName" />
         </div>
         <div class="col-6">
             <label class="form-label" for="LastName">Last Name:</label>
-            <input class="input-group" type="text" id="LastName" name="@NewStudent.LastName" />
+            <input class="input-group" type="text" id="LastName" @bind="LastName" />
         </div>
     </div>
     <div class="row">
         <div class="col-6">
             <label class="form-label" for="GradeLevel">Grade Level:</label>
-            <input class="input-group" type="number" id="GradeLevel" name="@NewStudent.GradeLevel" />
+            <input class="input-group" type="number" id="GradeLevel" @bind="GradeLevel" />
         </div>
         <div class="col-6">
             <label class="form-label" for="GPA">GPA:</label>
-            <input class="input-group" type="number" id="GPA" name="@NewStudent.GPA" />
+            <input class="input-group" type="number" id="GPA" @bind="GPA" />
         </div>
     </div>
     <div class="padding-10">
@@ -62,7 +63,10 @@ else
     [Parameter]
     [EditorRequired]
     public required string SchoolName { get ; set; }
-    private Student NewStudent = new Student();
+    private string? FirstName;
+    private string? LastName;
+    private int? GradeLevel;
+    private double? GPA;
     private List<Student>? students = new List<Student>();
     private int NumberOfStudents { get { return students.Count;}  }
     private string SchoolStyle;
@@ -98,10 +102,19 @@ else
 
     private void OnValidSubmit()
     {
+        var NewStudent = new Student(FirstName, LastName, GradeLevel, GPA);
         students.Add(NewStudent);
-        NewStudent = new Student();
         UpdateSchoolStyle();
+        ClearFields();
     }
 
-    private record Student(string? FirstName = null, string? LastName = null, int? GradeLevel = null, double? GPA = 0);
+    private void ClearFields()
+    {
+        FirstName = string.Empty;
+        LastName = string.Empty;
+        GradeLevel = null;
+        GPA = null;
+    }
+
+    private record Student(string? FirstName = "", string? LastName = "", int? GradeLevel = 1, double? GPA = 0);
 }
