@@ -9,6 +9,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddScoped<IGrettingService, GreetingService>();
 builder.Services.AddScoped<IStateService, StateService>();
+builder.Services.AddScoped<ICartService, CartService>();
 
 var app = builder.Build();
 

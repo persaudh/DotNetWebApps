@@ -1,5 +1,5 @@
 ﻿@page "/weather"
-@attribute [StreamRendering]
+@rendermode InteractiveServer
 
 <PageTitle>Weather</PageTitle>
 
@@ -23,15 +23,14 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
-            {
+            <Virtualize Items="forecasts" Context="forecast" OverscanCount="15">        
                 <tr>
                     <td>@forecast.Date.ToShortDateString()</td>
                     <td>@forecast.TemperatureC</td>
                     <td>@forecast.TemperatureF</td>
                     <td>@forecast.Summary</td>
                 </tr>
-            }
+            </Virtualize>
         </tbody>
     </table>
 }
@@ -46,7 +45,7 @@ else
 
         var startDate = DateOnly.FromDateTime(DateTime.Now);
         var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
-        forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        forecasts = Enumerable.Range(1, 100_000).Select(index => new WeatherForecast
         {
             Date = startDate.AddDays(index),
             TemperatureC = Random.Shared.Next(-20, 55),

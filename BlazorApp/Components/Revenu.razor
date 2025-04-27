@@ -6,10 +6,14 @@ else
 {
     <p class="alert alert-danger">@Amount</p>
 }
+<p>Amount: @CascadingAmount</p>
 @code {
     [Parameter]
     public decimal Amount { get; set; }
     public bool SuccessfulDay { get; set; }
+
+    [CascadingParameter(Name = "Amount")]
+    public decimal CascadingAmount { get; set; }
 
     public override Task SetParametersAsync(ParameterView parameters)
     {

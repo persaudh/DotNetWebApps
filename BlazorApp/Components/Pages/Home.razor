@@ -1,9 +1,15 @@
 ﻿@page "/"
+@page "/home"
+@page "/start"
+@inject NavigationManager NavigationManager
+
+@attribute [Route(RouteDefinitions.HomeRoute)]
+
 @* @inject IGrettingService GreetingService *@
 @inject IStateService StateService
 @rendermode @(new InteractiveServerRenderMode(prerender:false))
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Home </PageTitle>
 
 <h1>Hello, world!</h1>
 
@@ -16,9 +22,11 @@ Welcome to your new app.
 </div>
 
 <div>
-    <Revenu Amount="100_000"></Revenu>
-    <Revenu Amount="400_000"></Revenu>
-    <Revenu Amount="700_000"></Revenu>
+    <CascadingValue Value="CascadingAmount" Name="Amount">
+        <Revenu Amount="100_000"></Revenu>
+        <Revenu Amount="400_000"></Revenu>
+        <Revenu Amount="700_000"></Revenu>
+    </CascadingValue>
 
     <Gretting Name="Hemraj"></Gretting>
 </div>
@@ -27,6 +35,8 @@ Welcome to your new app.
     <PropertyColumn Title="Abbreviation" Property="@(s => s.Abbreviation)" Sortable="true" />
 </QuickGrid>
 <Paginator State="pagination"></Paginator>
+
+<button type="button" class="btn btn-primary" @onclick="NavClick">Counter Nav</button>
 
 @GreetingService.GetGreeting()
 
@@ -38,6 +48,8 @@ Welcome to your new app.
 
 @code
 {
+    public decimal CascadingAmount { get; set; } = 1_000_000;
+
     public string ImageSource { get; set; } = "images/BlazorComic.png";
     string FirstName = "Hemraj";
 
@@ -49,6 +61,8 @@ Welcome to your new app.
     public IQueryable<State>? States { get; set; } = null;
     public PaginationState pagination { get; set; } = new PaginationState { ItemsPerPage = 5 };
 
+
+
     protected override void OnInitialized()
     {
         States = StateService.GetStates().AsQueryable();
@@ -57,6 +71,11 @@ Welcome to your new app.
 
     public void OnSearchText(string text)
     {
-        SearchText =  text;
+        SearchText = text;
+    }
+
+    public void NavClick()
+    {
+        NavigationManager.NavigateTo("/counter");
     }
 }

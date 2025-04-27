@@ -16,6 +16,14 @@
     private int currentCount = 0;
     private int KeyPressed = 0;
 
+    [SupplyParameterFromQuery]
+    public int Count { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        currentCount = Count;
+    }
+
     private Task IncrementCount()
     {
         currentCount++;
