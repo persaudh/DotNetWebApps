@@ -2,6 +2,7 @@
 @page "/home"
 @page "/start"
 @inject NavigationManager NavigationManager
+@inject ILogger<Home> Logger
 
 @attribute [Route(RouteDefinitions.HomeRoute)]
 
@@ -87,6 +88,12 @@ Welcome to your new app.
 
     protected override void OnInitialized()
     {
+        Logger.LogTrace("Trace");
+        Logger.LogDebug("Debug");
+        Logger.LogInformation("Information");
+        Logger.LogWarning("Warning");
+        Logger.LogError("Error");
+        Logger.LogCritical("Critical");
         States = StateService.GetStates().AsQueryable();
         base.OnInitialized();
     }
