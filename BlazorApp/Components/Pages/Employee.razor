@@ -1,26 +1,33 @@
 ﻿@attribute [StreamRendering]
 @rendermode @(new InteractiveServerRenderMode (prerender: false))
 @page "/employee"
+@using System.ComponentModel.DataAnnotations
 
 <h3>Employee</h3>
 @if (!_isSubmitted)
 {
-    <EditForm Model="Worker" OnSubmit="@OnSubmit">
+    <EditForm Model="Worker" OnValidSubmit="@OnSubmit">
+        <DataAnnotationsValidator />
+       @*  <ValidationSummary /> *@
         <div class="label-group">
             <label for="firstName">First Name</label>
             <InputText id="firstName" class="form-control" @bind-Value="Worker.FirstName" />
+            <ValidationMessage For="@(() => Worker.FirstName)" />
         </div>
         <div class="label-group">
             <label for="lastName">Last Name</label>
             <InputText id="lastName" class="form-control" @bind-Value="Worker.LastName" />
+            <ValidationMessage For="@(() => Worker.LastName)" />
         </div>
         <div class="label-group">
             <label for="dateOfBirth">Data of Birth</label>
             <InputDate id="dateOfBirth" class="form-control" @bind-Value="Worker.DateOfBirth" />
+            <ValidationMessage For="@(() => Worker.DateOfBirth)" />
         </div>
         <div class="label-group">
             <label for="salary">Salary</label>
             <InputNumber id="salary" class="form-control" @bind-Value="Worker.Salary" />
+            <ValidationMessage For="@(() => Worker.Salary)" />
         </div>
         <div style="margin-top:15px">
             <button class="btn btn-primary" type="submit">Save Employee</button>
@@ -49,9 +56,17 @@ else
 
     public class Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public int Salary { get; set; }
+        [Required]
+        [StringLength(20, MinimumLength = 4, ErrorMessage = "First name must be between 4 and 20 characters.")]
+        public string? FirstName { get; set; }
+        [Required]
+        [StringLength(50, MinimumLength = 4, ErrorMessage = "Last name must be between 4 and 50 characters.")]
+        public string? LastName { get; set; }
+        [Required]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateOnly DateOfBirth { get; set; }
+        [Required]
+        [Range(10000, 100000, ErrorMessage = "Salary must be between 10,000 and 100,000.")]
+        public decimal Salary { get; set; }
     }
 }
