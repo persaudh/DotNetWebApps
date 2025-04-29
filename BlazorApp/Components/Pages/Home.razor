@@ -36,11 +36,33 @@ Welcome to your new app.
 </QuickGrid>
 <Paginator State="pagination"></Paginator>
 
+<Question Title="What type of technology us ASP.Net Core Blazor">
+    <Content>
+        <input type="checkbox" /> Frontend web framework<br />
+        <input type="checkbox" /> Backend web framework<br />
+        <input type="checkbox" /> Full stack web framework<br />
+        <input type="checkbox" /> None of the above<br />
+        <input type="checkbox" /> All of the above<br />
+    </Content>
+</Question>
+
+<Question Title="Do you like using Blazor">
+    <Content>
+        <div style="color: purple; font-size: 16px">
+            <input type="radio" name="like-blazor" id="yes" /> yes <br />
+            <input type="radio" name="like-blazor" id="no" /> no <br />
+        </div>
+    </Content>
+</Question>
+
 <button type="button" class="btn btn-primary" @onclick="NavClick">Counter Nav</button>
+<br />
 
 @GreetingService.GetGreeting()
+<br />
 
 <img src="@ImageSource" style="width:600px;" alt="BlazorComic" />
+<br />
 
 
 

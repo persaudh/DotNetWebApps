@@ -1,16 +1,10 @@
-using BlazorApp.Components;
-using BlazorApp.Services;
+using RCLBlazorServer.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
-
-builder.Services.AddScoped<IGrettingService, GreetingService>();
-builder.Services.AddScoped<IStateService, StateService>();
-builder.Services.AddScoped<ICartService, CartService>();
-builder.Services.AddScoped<IWeatherService, WeatherService>();
 
 var app = builder.Build();
 

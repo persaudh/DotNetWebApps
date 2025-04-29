@@ -2,6 +2,26 @@
 @attribute [StreamRendering]
 @rendermode @(new InteractiveServerRenderMode (prerender: false))
 
+ @* One Way Data Binding *@
+@* <div>@Name</div>
+<div class="@Name"></div>
+<User Username="@Name"></User> *@
+
+@* Two Way Data Binding *@
+@* <input @bind="UserName" />
+@UserName *@
+
+@* Data Binding with @Bind-Value *@
+@* <input @bind-value="UserName" />
+<InputText @bind-Value="UserName" /> *@
+
+@* Event Binding *@
+@* <button @onclick="OnClick">Click Me</button>
+<EditForm Model="User" OnSubmit="@OnSubmit"></EditForm> *@
+
+@* Complex Objects *@
+@* <User Username="@User.Username"></User>  *@
+
 <div class="bg-gray ">
     <h3>@SchoolName</h3>
     <h4 class="@SchoolStyle">Students Enrolled: @NumberOfStudents SchoolGPA: @SchoolGPA</h4>
@@ -30,6 +50,7 @@
     </div>
 
 </div>
+
 @if (students.Count == 0)
 {
     <p>No Data...</p>
@@ -62,15 +83,16 @@ else
 @code {
     [Parameter]
     [EditorRequired]
-    public required string SchoolName { get ; set; }
+    public required string SchoolName { get; set; }
     private string? FirstName;
     private string? LastName;
     private int? GradeLevel;
     private double? GPA;
+    private Student NewStudent = new Student();
     private List<Student>? students = new List<Student>();
-    private int NumberOfStudents { get { return students.Count;}  }
+    private int NumberOfStudents { get { return students.Count; } }
     private string SchoolStyle;
-    private double? SchoolGPA; 
+    private double? SchoolGPA;
 
     protected override async Task OnInitializedAsync()
     {
@@ -84,7 +106,7 @@ else
     public void UpdateSchoolStyle()
     {
         double? GPASums = students.Sum(s => s.GPA);
-        SchoolGPA = double.NaN == GPASums  ? 0 : GPASums/students.Count;
+        SchoolGPA = double.NaN == GPASums ? 0 : GPASums / students.Count;
         switch (SchoolGPA)
         {
             case > 3.0:
@@ -117,4 +139,22 @@ else
     }
 
     private record Student(string? FirstName = "", string? LastName = "", int? GradeLevel = 1, double? GPA = 0);
+
+    public string Name { get; set; } = "Hemraj";
+    public string UserName { get; set; } = "HP";
+
+    public record Person(string Username);
+    public Person User { get; set; } = new Person("Hemraj Persaud");
+
+    public void OnClick()
+    {
+        Name = "Hemraj Persaud";
+        UserName = "HP";
+    }
+
+    public void OnSubmit()
+    {
+        Name = "Hemraj Persaud";
+        UserName = "HP";
+    }
 }

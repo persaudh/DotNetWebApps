@@ -1,0 +1,57 @@
+﻿@attribute [StreamRendering]
+@rendermode @(new InteractiveServerRenderMode (prerender: false))
+@page "/employee"
+
+<h3>Employee</h3>
+@if (!_isSubmitted)
+{
+    <EditForm Model="Worker" OnSubmit="@OnSubmit">
+        <div class="label-group">
+            <label for="firstName">First Name</label>
+            <InputText id="firstName" class="form-control" @bind-Value="Worker.FirstName" />
+        </div>
+        <div class="label-group">
+            <label for="lastName">Last Name</label>
+            <InputText id="lastName" class="form-control" @bind-Value="Worker.LastName" />
+        </div>
+        <div class="label-group">
+            <label for="dateOfBirth">Data of Birth</label>
+            <InputDate id="dateOfBirth" class="form-control" @bind-Value="Worker.DateOfBirth" />
+        </div>
+        <div class="label-group">
+            <label for="salary">Salary</label>
+            <InputNumber id="salary" class="form-control" @bind-Value="Worker.Salary" />
+        </div>
+        <div style="margin-top:15px">
+            <button class="btn btn-primary" type="submit">Save Employee</button>
+            <button class="btn btn-secondary" style="margin-left: 5px" type="reset">Reset</button>
+        </div>
+    </EditForm>
+}
+else
+{
+    <div style="margin-bottom: 15px">The new employee has been added.</div>
+    <div>
+        <b>@Worker.FirstName @Worker.LastName</b><br />
+        @Worker.DateOfBirth.ToShortDateString() <br />
+        @Worker.Salary.ToString("C")
+    </div>
+}
+@code {
+    private bool _isSubmitted = false;
+    public void OnSubmit()
+    {
+        // Handle form submission logic here
+        _isSubmitted = true;
+    }
+
+    public Person Worker = new Person();
+
+    public class Person
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public int Salary { get; set; }
+    }
+}
