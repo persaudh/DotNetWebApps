@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedComponents", "SharedC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCLBlazorServer", "RCLBlazorServer\RCLBlazorServer.csproj", "{22373EB7-1C17-4FF7-A915-3D36808B2989}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutTracker", "Workout Tracker\WorkoutTracker.csproj", "{644B9E84-C6F4-49B8-B832-D2F8641CBE6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{22373EB7-1C17-4FF7-A915-3D36808B2989}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22373EB7-1C17-4FF7-A915-3D36808B2989}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22373EB7-1C17-4FF7-A915-3D36808B2989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{644B9E84-C6F4-49B8-B832-D2F8641CBE6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{644B9E84-C6F4-49B8-B832-D2F8641CBE6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{644B9E84-C6F4-49B8-B832-D2F8641CBE6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{644B9E84-C6F4-49B8-B832-D2F8641CBE6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -101,6 +107,7 @@ Global
 		{A61B78EC-5D11-4F45-BD40-BA50E59FE8B7} = {A06F4E98-AC74-4E8B-90E9-37991A3AFC2B}
 		{0D80EDC1-2B32-4289-8EB4-8FD2B6DA5692} = {A61B78EC-5D11-4F45-BD40-BA50E59FE8B7}
 		{22373EB7-1C17-4FF7-A915-3D36808B2989} = {A61B78EC-5D11-4F45-BD40-BA50E59FE8B7}
+		{644B9E84-C6F4-49B8-B832-D2F8641CBE6A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5BC8C9AC-DBC8-4A71-9D68-676769094C84}

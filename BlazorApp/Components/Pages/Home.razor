@@ -10,6 +10,7 @@
 @inject IStateService StateService
 @rendermode @(new InteractiveServerRenderMode(prerender:false))
 @using Microsoft.AspNetCore.Components.QuickGrid
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Home </PageTitle>
 
@@ -60,6 +61,12 @@ Welcome to your new app.
 <button type="button" class="btn btn-primary" @onclick="NavClick">Counter Nav</button>
 <br />
 
+<button class="btn btn-primary" @onclick="SendMessage">ShowMessage</button>
+<br />
+<button class="btn btn-secondary" @onclick="CalculateAge">Calculate Age</button>
+Age: @Age
+<br />
+
 @GreetingService.GetGreeting()
 <br />
 
@@ -107,5 +114,16 @@ Welcome to your new app.
     public void NavClick()
     {
         NavigationManager.NavigateTo("/counter");
+    }
+
+    public async Task SendMessage()
+    {
+        await JSRuntime.InvokeVoidAsync("showMessage", new object[] {"Executing JS!"});
+    }
+
+    public int Age { get; set; }
+    public async Task CalculateAge()
+    {
+      Age = await JSRuntime.InvokeAsync<int>("calculateAge", new object[] { "1990" });
     }
 }
