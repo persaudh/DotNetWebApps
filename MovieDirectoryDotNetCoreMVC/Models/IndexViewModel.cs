@@ -8,6 +8,7 @@ namespace MovieDirectoryDotNetCoreMVC.Models
         public List<Genre> Genres { get; set; }
         public List<Rating> Ratings { get; set; }
         public List<int> SelectGenreIds { get; set; }
+        public List<int> SelectRatingIds { get; set; }
         public IndexViewModel() { }
     }
 }

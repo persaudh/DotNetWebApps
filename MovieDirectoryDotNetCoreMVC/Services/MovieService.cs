@@ -31,9 +31,45 @@ namespace MovieDirectoryDotNetCoreMVC.Services
                 movieQuery = movieQuery.Where(m =>
                    genreIDs.All(gid => m.Genres.Select(g => g.Id).Contains(gid))
                  );
-                   
+
             }
 
+            return await movieQuery.ToListAsync();
+        }
+
+        public async Task<List<Movie>> GetMoviesByRatingAsync(List<int> ratingIDs)
+        {
+            var movieQuery = _context.Movies
+                .Include(m => m.Genres)
+                .Include(m => m.Rating)
+                .AsQueryable();
+            if (ratingIDs != null && ratingIDs.Any())
+            {
+                movieQuery = movieQuery.Where(m =>
+                    ratingIDs.Contains(m.RatingId)
+                );
+            }
+            return await movieQuery.ToListAsync();
+        }
+
+        public async Task<List<Movie>> GetMoviesByGenreAndRatingAsync(List<int> genreIDs, List<int> ratingIDs)
+        {
+            var movieQuery = _context.Movies
+                .Include(m => m.Genres)
+                .Include(m => m.Rating)
+                .AsQueryable();
+            if (genreIDs != null && genreIDs.Any())
+            {
+                movieQuery = movieQuery.Where(m =>
+                    genreIDs.All(gid => m.Genres.Select(g => g.Id).Contains(gid))
+                );
+            }
+            if (ratingIDs != null && ratingIDs.Any())
+            {
+                movieQuery = movieQuery.Where(m =>
+                    ratingIDs.Contains(m.RatingId)
+                );
+            }
             return await movieQuery.ToListAsync();
         }
     }
