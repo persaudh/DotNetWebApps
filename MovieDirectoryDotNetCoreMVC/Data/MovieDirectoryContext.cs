@@ -31,7 +31,10 @@ namespace MovieDirectoryDotNetCoreMVC.Data
                 .WithMany(r => r.Movies)
                 .HasForeignKey(m => m.RatingId);
 
-            
+            modelBuilder.Entity<Movie>()
+                .HasOne(m => m.MoviePoster)
+                .WithOne(mp => mp.Movie)
+                .HasForeignKey<MoviePoster>(m => m.Id);
         }
     }
 }
