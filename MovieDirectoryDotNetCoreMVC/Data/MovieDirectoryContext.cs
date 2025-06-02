@@ -12,6 +12,7 @@ namespace MovieDirectoryDotNetCoreMVC.Data
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Rating> Ratings { get; set; }
+        public DbSet<MoviePoster> MoviePosters { get; set; }
 
         /// <summary>
         /// Override the OnModelCreating method to configure the relationships between entities

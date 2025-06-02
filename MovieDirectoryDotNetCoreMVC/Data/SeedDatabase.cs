@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 
 namespace MovieDirectoryDotNetCoreMVC.Data
@@ -15,17 +16,18 @@ namespace MovieDirectoryDotNetCoreMVC.Data
         /// <param name="configuration"></param>
         public static void Initialize(IServiceProvider serviceProvider, IConfiguration configuration)
         {
-            InitilizeGenres(serviceProvider);
+            InitializeGenres(serviceProvider);
             InitializeRatings(serviceProvider);
             InitializeMovies(serviceProvider);
             InitializeMovieGenres(serviceProvider);
+            InitializeMoviePosters(serviceProvider);
         }
 
         /// <summary>
         /// Initializes the genres in the database.
         /// </summary>
         /// <param name="serviceProvider"></param>
-        public static void InitilizeGenres(IServiceProvider serviceProvider)
+        public static void InitializeGenres(IServiceProvider serviceProvider)
         {
             using var scope = serviceProvider.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<MovieDirectoryContext>();
@@ -140,6 +142,68 @@ namespace MovieDirectoryDotNetCoreMVC.Data
             context.SaveChanges();
             // }
 
+        }
+
+        /// <summary>
+        ///     
+        public static void InitializeMoviePosters(IServiceProvider serviceProvider)
+        {
+            using var scope = serviceProvider.CreateScope();
+            var context = scope.ServiceProvider.GetRequiredService<MovieDirectoryContext>();
+            if (!context.MoviePosters.Any(p => p.CreatedBy == "Initial"))
+            {
+                var movieJson = File.ReadAllText("Data/SeedData/Movies.json");
+                var movieSeeds = JsonSerializer.Deserialize<List<MovieSeedDto>>(movieJson);
+                var now = DateTime.UtcNow;
+
+                var moviePosters = new List<MoviePoster>();
+                var Id = 1;
+                foreach (var movieSeed in movieSeeds)
+                {
+                    var movie = context.Movies.FirstOrDefault(m => m.Title == movieSeed.Title);
+                    if (movie == null)
+                        continue;
+
+                    var fileName = Path.GetFileName(movieSeed.ImageUrl);
+                    var relativePath = movieSeed.ImageUrl.Contains("wwwroot")
+                ? movieSeed.ImageUrl.Substring(movieSeed.ImageUrl.IndexOf("wwwroot") + "wwwroot".Length).Replace("\\", "/")
+                : movieSeed.ImageUrl;
+
+
+                    var poster = new MoviePoster
+                    {
+                        Id = Id++,
+                        FileName = fileName,
+                        ContentType = "image/jpeg",
+                        LocalPath = relativePath,
+                        CreatedBy = movieSeed.CreatedBy,
+                        CreatedDate = now,
+                        ModifiedBy = movieSeed.ModifiedBy,
+                        ModifiedDate = now
+                    };
+
+                    context.MoviePosters.Add(poster);
+                    context.SaveChanges(); // Get generated ID
+
+                    // Update the Movie's FK
+                    movie.MoviePosterId = poster.Id;
+                    movie.ModifiedDate = now;
+
+                    context.Movies.Update(movie);
+                }
+                context.SaveChanges();
+            }
+        }
+
+        private class MovieSeedDto
+        {
+            public string Title { get; set; }
+            public string Description { get; set; }
+            public string ReleaseDate { get; set; } // or DateTime if already converted
+            public string ImageUrl { get; set; }
+            public int RatingId { get; set; }
+            public string CreatedBy { get; set; }
+            public string ModifiedBy { get; set; }
         }
     }
 }

@@ -87,7 +87,7 @@
             <div class="col-md-3" style="padding-bottom: 10px;">
                 <div class="card">
                     <div class="card-body">
-                        <img src="..." class="card-img-top" alt="...">
+                        <img src="@movie.MoviePoster.LocalPath" class="card-img-top" alt="...">
                         <h5 class="card-title">@movie.Title</h5>
                         <p class="card-text">@movie.Description</p>
                         <p class="card-text"><small class="text-body-secondary">@string.Join(',', movie.Genres.Select(g => g.Name))</small></p>

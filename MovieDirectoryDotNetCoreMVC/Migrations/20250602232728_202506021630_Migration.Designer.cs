@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MovieDirectoryDotNetCoreMVC.Data;
 
@@ -11,9 +12,11 @@ using MovieDirectoryDotNetCoreMVC.Data;
 namespace MovieDirectoryDotNetCoreMVC.Migrations
 {
     [DbContext(typeof(MovieDirectoryContext))]
-    partial class MovieDirectoryContextModelSnapshot : ModelSnapshot
+    [Migration("20250602232728_202506021630_Migration")]
+    partial class _202506021630_Migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,7 +72,7 @@ namespace MovieDirectoryDotNetCoreMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genres", (string)null);
+                    b.ToTable("Genres");
                 });
 
             modelBuilder.Entity("MovieDirectoryDotNetCoreMVC.Data.Movie", b =>
@@ -115,7 +118,7 @@ namespace MovieDirectoryDotNetCoreMVC.Migrations
 
                     b.HasIndex("RatingId");
 
-                    b.ToTable("Movies", (string)null);
+                    b.ToTable("Movies");
                 });
 
             modelBuilder.Entity("MovieDirectoryDotNetCoreMVC.Data.MoviePoster", b =>
@@ -151,7 +154,7 @@ namespace MovieDirectoryDotNetCoreMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MoviePosters", (string)null);
+                    b.ToTable("MoviePosters");
                 });
 
             modelBuilder.Entity("MovieDirectoryDotNetCoreMVC.Data.Rating", b =>
@@ -186,7 +189,7 @@ namespace MovieDirectoryDotNetCoreMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ratings", (string)null);
+                    b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("GenreMovie", b =>

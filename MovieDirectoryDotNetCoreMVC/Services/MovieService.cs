@@ -16,6 +16,7 @@ namespace MovieDirectoryDotNetCoreMVC.Services
             return await _context.Movies
                 .Include(m => m.Genres)
                 .Include(m => m.Rating)
+                .Include(m => m.MoviePoster)
                 .ToListAsync();
         }
 
@@ -24,6 +25,7 @@ namespace MovieDirectoryDotNetCoreMVC.Services
             var movieQuery = _context.Movies
                 .Include(m => m.Genres)
                 .Include(m => m.Rating)
+                .Include(m => m.MoviePoster)
                 .AsQueryable();
 
             if (genreIDs != null && genreIDs.Any())
@@ -42,6 +44,7 @@ namespace MovieDirectoryDotNetCoreMVC.Services
             var movieQuery = _context.Movies
                 .Include(m => m.Genres)
                 .Include(m => m.Rating)
+                .Include(m => m.MoviePoster)
                 .AsQueryable();
             if (ratingIDs != null && ratingIDs.Any())
             {
@@ -57,6 +60,7 @@ namespace MovieDirectoryDotNetCoreMVC.Services
             var movieQuery = _context.Movies
                 .Include(m => m.Genres)
                 .Include(m => m.Rating)
+                .Include(m => m.MoviePoster)
                 .AsQueryable();
             if (genreIDs != null && genreIDs.Any())
             {
