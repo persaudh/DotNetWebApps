@@ -1,0 +1,23 @@
+﻿@model LogInViewModel
+@{
+    ViewData["Title"] = "Log In";
+}
+
+<div>
+    <h1>@ViewData["Title"]</h1>
+    <p>Use this page to log in to your account.</p>
+    <div>
+        <form method="post" asp-controller="LogIn" asp-action="SubmitLogIn">
+            <label for="UserName">User Name</label>
+            <input type="text" placeholder="User Name" class="form-control" name="UserName" />
+            <label for="Password">Password</label>
+            <input type="password" placeholder="Password" class="form-control" name="Password" />
+            <button class="btn btn-primary" type="submit">Log In</button>
+            <a class="btn btn-outline-info" href="@Url.Action("Register", "LogIn")">Register</a>
+        </form>
+    </div>
+    @if (Model != null && !string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <span class="alert alert-danger">@Model.ErrorMessage</span>
+    }
+</div>
